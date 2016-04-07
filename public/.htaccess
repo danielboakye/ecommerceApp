@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteRule ^shirts/$ shirts/shirts.php
+RewriteRule ^shirts/([0-9]+)$ shirts/$1/
+RewriteRule ^shirts/([0-9]+)/$ shirts/shirt.php?id=$1
+RewriteRule ^receipt.php$ receipt/ [R=301]
+
+RewriteCond %{QUERY_STRING} ^id=([0-9]+)$
+RewriteRule ^shirt.php$ %1/? [R=301]
+
+
+#200 request successful
+#404 page not found
+#500 internal server error
+#301 requested resource has moved permanently
+
